@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import styles from './Header.module.css';
@@ -7,6 +8,7 @@ import styles from './Header.module.css';
 export default function Header() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -40,7 +42,9 @@ export default function Header() {
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
             <button className={styles.cart}>
-              {t('header.cart')} <span className={styles.badge}>0</span>
+              <span className={styles.cartIcon}>🛒</span>
+              <span className={styles.cartText}>{t('header.cart')}</span>
+              <span className={styles.badge}>0</span>
             </button>
           </div>
         </div>
@@ -53,24 +57,37 @@ export default function Header() {
             <p className={styles.tagline}>{t('header.tagline')}</p>
           </div>
 
-          <nav className={styles.nav}>
-            <a href="#home" className={styles.navLink}>{t('nav.home')}</a>
-            <a href="#products" className={styles.navLink}>{t('nav.products')}</a>
-            <a href="#custom" className={styles.navLink}>{t('nav.custom')}</a>
-            <a href="#about" className={styles.navLink}>{t('nav.about')}</a>
-            <a href="#contact" className={styles.navLink}>{t('nav.contact')}</a>
+          <button
+            className={`${styles.menuToggle} ${isMenuOpen ? styles.menuActive : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
+            <a href="#home" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</a>
+            <a href="#products" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.products')}</a>
+            <a href="#custom" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.custom')}</a>
+            <a href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</a>
+            <a href="#contact" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</a>
           </nav>
         </div>
 
-        <div className={styles.categories}>
-          <button className={`${styles.categoryBtn} ${styles.active}`}>{t('cat.all')}</button>
-          <button className={styles.categoryBtn}>{t('cat.decor')}</button>
-          <button className={styles.categoryBtn}>{t('cat.tech')}</button>
-          <button className={styles.categoryBtn}>{t('cat.figurines')}</button>
-          <button className={styles.categoryBtn}>{t('cat.office')}</button>
-          <button className={styles.categoryBtn}>{t('cat.custom')}</button>
+        <div className={styles.categoriesWrapper}>
+          <div className={styles.categories}>
+            <button className={`${styles.categoryBtn} ${styles.active}`}>{t('cat.all')}</button>
+            <button className={styles.categoryBtn}>{t('cat.decor')}</button>
+            <button className={styles.categoryBtn}>{t('cat.tech')}</button>
+            <button className={styles.categoryBtn}>{t('cat.figurines')}</button>
+            <button className={styles.categoryBtn}>{t('cat.office')}</button>
+            <button className={styles.categoryBtn}>{t('cat.custom')}</button>
+          </div>
         </div>
       </div>
+      {isMenuOpen && <div className={styles.overlay} onClick={() => setIsMenuOpen(false)} />}
     </header>
   );
 }

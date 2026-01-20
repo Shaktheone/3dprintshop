@@ -104,6 +104,14 @@
     box-shadow: var(--shadow-md);
 }
 
+.cartIcon {
+    font-size: 1.1rem;
+}
+
+.cartText {
+    display: inline;
+}
+
 .badge {
     background: white;
     color: var(--accent);
@@ -179,6 +187,53 @@
     width: 100%;
 }
 
+.menuToggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+}
+
+.menuToggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.menuActive span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menuActive span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuActive span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+}
+
+.categoriesWrapper {
+    width: 100%;
+    border-top: 1px solid var(--border);
+    background: var(--bg-secondary);
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+}
+
 .categories {
     display: flex;
     gap: 0.5rem;
@@ -214,26 +269,80 @@
     color: white;
 }
 
-@media (max-width: 768px) {
-    .topBar {
-        flex-direction: column;
-        gap: 0.75rem;
-        text-align: center;
-    }
-
-    .mainHeader {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
+@media (max-width: 992px) {
     .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: none;
+    }
+
+    .navOpen {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--bg-elevated);
+        z-index: 1001;
+        padding: 5rem 2rem;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .navLink {
+        font-size: 1.25rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--border);
+        width: 100%;
+    }
+
+    .menuToggle {
+        display: flex;
+    }
+
+    .topBar {
+        padding: 0.5rem 0;
+    }
+
+    .contact {
+        display: none;
+    }
+
+    .cartText {
+        display: none;
+    }
+
+    .cart {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .mainHeader {
+        padding: 1rem 0;
     }
 
     .logoText {
         font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.625rem;
+    }
+
+    .categoriesWrapper {
+        margin: 0 -1rem;
+        padding: 0 1rem;
     }
 }
