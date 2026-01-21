@@ -1,34 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "./providers";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
+import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
+import CartDrawer from './components/CartDrawer';
+import BackgroundElements from './components/BackgroundElements';
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "3DPrintShop - Premium 3D Printed Creations",
-  description: "Discover premium 3D printed products crafted with precision and creativity. From home decor to custom designs, we bring your imagination to life.",
+  description: "Custom 3D printed mechanical wonders and articulated art pieces.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>
-          {children}
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <AuthProvider>
+              <CartProvider>
+                <BackgroundElements />
+                {children}
+                <CartDrawer />
+              </CartProvider>
+            </AuthProvider>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

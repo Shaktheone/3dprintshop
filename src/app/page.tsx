@@ -94,11 +94,5 @@ function MainContent() {
 }
 
 export default function Home() {
-  return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <MainContent />
-      </LanguageProvider>
-    </ThemeProvider>
-  );
+  return <MainContent />;
 }

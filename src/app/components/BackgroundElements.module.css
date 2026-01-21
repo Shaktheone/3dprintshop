@@ -1,0 +1,99 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--bg-primary);
+}
+
+.shape {
+    position: absolute;
+    border: 1px solid var(--text-primary);
+    opacity: 0.08;
+    transition: transform 0.1s linear;
+}
+
+.orb {
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: inset 0 0 40px var(--text-primary);
+}
+
+.orb1 {
+    width: 300px;
+    height: 300px;
+    top: 15%;
+    left: -100px;
+}
+
+.orb2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: -50px;
+    opacity: 0.05;
+}
+
+.tube {
+    width: 100px;
+    height: 300px;
+    border-radius: 50px;
+    top: 30%;
+    right: 15%;
+    border-style: double;
+    border-width: 3px;
+}
+
+.gridContainer {
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    perspective: 1000px;
+}
+
+.grid {
+    width: 200%;
+    height: 200%;
+    margin-left: -50%;
+    background-image:
+        linear-gradient(var(--text-primary) 1px, transparent 1px),
+        linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotateX(60deg);
+    opacity: 0.05;
+}
+
+.fog {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 30%, var(--bg-primary) 90%);
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .orb1 {
+        width: 150px;
+        height: 150px;
+        top: 10%;
+    }
+
+    .orb2 {
+        width: 100px;
+        height: 100px;
+        top: 70%;
+    }
+
+    .tube {
+        display: none;
+    }
+
+    .gridContainer {
+        height: 20%;
+    }
+}
