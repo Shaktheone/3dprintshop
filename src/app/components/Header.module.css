@@ -4,128 +4,21 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     transition: all 0.3s ease;
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.topBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-}
-
-.contact {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.divider {
-    opacity: 0.5;
-}
-
-.actions {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.languageSwitcher {
-    display: flex;
-    gap: 4px;
-    background: var(--bg-secondary);
-    padding: 4px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-}
-
-.langBtn {
-    padding: 0.375rem 0.75rem;
-    border-radius: 6px;
-    color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 0.8125rem;
-    background: transparent;
-}
-
-.langBtn:hover {
-    color: var(--text-primary);
-    background: var(--bg-primary);
-}
-
-.langBtn.active {
-    background: var(--accent);
-    color: white;
-}
-
-.themeToggle {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 1.125rem;
-    transition: all 0.2s ease;
-}
-
-.themeToggle:hover {
-    background: var(--bg-primary);
-    border-color: var(--border-hover);
-    transform: scale(1.05);
-}
-
-.cart {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: var(--accent);
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    font-size: 0.875rem;
-}
-
-.cart:hover {
-    background: var(--accent-hover);
-    box-shadow: var(--shadow-md);
-}
-
-.cartIcon {
-    font-size: 1.1rem;
-}
-
-.cartText {
-    display: inline;
-}
-
-.badge {
-    background: white;
-    color: var(--accent);
-    padding: 0.125rem 0.5rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
+    padding: 0 2rem;
 }
 
 .mainHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 0;
+    padding: 1.5rem 0;
 }
 
 .logo {
@@ -133,140 +26,142 @@
 }
 
 .logoText {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     margin: 0;
     color: var(--text-primary);
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
 }
 
-.gradient {
-    color: var(--accent);
-}
-
-.tagline {
-    font-size: 0.6875rem;
+.minimal {
+    font-weight: 300;
     color: var(--text-muted);
-    margin: 0;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-weight: 500;
 }
 
 .nav {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .navLink {
     color: var(--text-secondary);
     font-weight: 500;
-    font-size: 0.9375rem;
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-.navLink::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.2s ease;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
 }
 
 .navLink:hover {
     color: var(--text-primary);
 }
 
-.navLink:hover::after {
-    width: 100%;
+.actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.languageSwitcher {
+    display: flex;
+    gap: 8px;
+}
+
+.langBtn {
+    padding: 4px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.langBtn.active {
+    color: var(--text-primary);
+}
+
+.themeToggle {
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    padding: 0;
+    cursor: pointer;
+}
+
+.cart {
+    position: relative;
+    background: transparent;
+    padding: 0;
+}
+
+.cartIcon {
+    font-size: 1.25rem;
+}
+
+.iconLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-base);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.iconLink:hover {
+    background: var(--bg-hover);
+    border-color: var(--text-primary);
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: 0.625rem;
+    font-weight: 800;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 .menuToggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1002;
 }
 
 .menuToggle span {
     display: block;
-    width: 24px;
-    height: 2px;
+    width: 20px;
+    height: 1.5px;
     background: var(--text-primary);
-    transition: all 0.3s ease;
-}
-
-.menuActive span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menuActive span:nth-child(2) {
-    opacity: 0;
-}
-
-.menuActive span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transition: transform 0.3s ease;
 }
 
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(4px);
     z-index: 999;
-}
-
-.categoriesWrapper {
-    width: 100%;
-    border-top: 1px solid var(--border);
-    background: var(--bg-secondary);
-    margin: 0 -1.5rem;
-    padding: 0 1.5rem;
-}
-
-.categories {
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.875rem 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-.categories::-webkit-scrollbar {
-    display: none;
-}
-
-.categoryBtn {
-    padding: 0.5rem 1rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 0.875rem;
-    white-space: nowrap;
-}
-
-.categoryBtn:hover {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border-color: var(--border-hover);
-}
-
-.categoryBtn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
 }
 
 @media (max-width: 992px) {
@@ -280,69 +175,25 @@
         position: fixed;
         top: 0;
         right: 0;
-        width: 80%;
-        max-width: 320px;
+        width: 100%;
         height: 100vh;
-        background: var(--bg-elevated);
+        background: var(--bg-primary);
         z-index: 1001;
-        padding: 5rem 2rem;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
-        animation: slideIn 0.3s ease-out;
-    }
-
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
+        padding: 6rem 2rem;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
     }
 
     .navLink {
-        font-size: 1.25rem;
-        padding: 1.25rem 0;
-        border-bottom: 1px solid var(--border);
-        width: 100%;
+        font-size: 2rem;
     }
 
     .menuToggle {
         display: flex;
     }
 
-    .topBar {
-        padding: 0.5rem 0;
-    }
-
-    .contact {
-        display: none;
-    }
-
-    .cartText {
-        display: none;
-    }
-
-    .cart {
-        padding: 0.5rem 0.75rem;
-    }
-}
-
-@media (max-width: 576px) {
     .mainHeader {
         padding: 1rem 0;
-    }
-
-    .logoText {
-        font-size: 1.5rem;
-    }
-
-    .tagline {
-        font-size: 0.625rem;
-    }
-
-    .categoriesWrapper {
-        margin: 0 -1rem;
-        padding: 0 1rem;
     }
 }
