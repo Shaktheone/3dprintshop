@@ -63,13 +63,13 @@
 
 .actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.75rem;
     align-items: center;
 }
 
 .languageSwitcher {
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 
 .langBtn {
@@ -202,5 +202,18 @@
 
     .mainHeader {
         padding: 1rem 0;
+    }
+
+    .actions {
+        gap: 1.25rem;
+    }
+
+    .languageSwitcher {
+        gap: 4px;
+    }
+
+    .langBtn {
+        padding: 6px;
+        font-size: 0.8125rem;
     }
 }

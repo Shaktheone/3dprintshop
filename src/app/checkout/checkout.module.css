@@ -157,14 +157,33 @@
 }
 
 @media (max-width: 900px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
     .layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .summarySection {
         position: static;
         order: -1;
-        /* Show summary first on mobile */
+        padding: 1.5rem;
+    }
+
+    .formSection {
+        padding: 1.5rem;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
