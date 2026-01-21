@@ -201,11 +201,11 @@
     }
 
     .mainHeader {
-        padding: 1rem 0;
+        padding: 1.25rem 0;
     }
 
     .actions {
-        gap: 1.5rem;
+        gap: 1.75rem;
     }
 
     .logoText {
@@ -213,11 +213,11 @@
     }
 
     .languageSwitcher {
-        gap: 4px;
+        gap: 6px;
     }
 
     .langBtn {
-        padding: 6px;
-        font-size: 0.8125rem;
+        padding: 8px;
+        font-size: 0.875rem;
     }
 }
