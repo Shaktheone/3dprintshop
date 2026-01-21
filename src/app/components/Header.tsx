@@ -29,9 +29,55 @@ export default function Header() {
             <a href="/#shop" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.shop')}</a>
             <a href="/#track" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.track')}</a>
             <a href="/#contact" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</a>
+
+            {/* Mobile Actions Consolidation */}
+            <div className={`${styles.actions} ${styles.mobileOnly}`}>
+              <div className={styles.languageSwitcher}>
+                <button
+                  className={`${styles.langBtn} ${language === 'ka' ? styles.active : ''}`}
+                  onClick={() => setLanguage('ka')}
+                >
+                  ქარ
+                </button>
+                <button
+                  className={`${styles.langBtn} ${language === 'en' ? styles.active : ''}`}
+                  onClick={() => setLanguage('en')}
+                >
+                  EN
+                </button>
+              </div>
+              <button
+                className={styles.themeToggle}
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? '●' : '○'}
+              </button>
+
+              {isAuthenticated ? (
+                <Link href="/account" className={styles.iconLink} aria-label="Account" onClick={() => setIsMenuOpen(false)}>
+                  👤
+                </Link>
+              ) : (
+                <Link href="/auth/signin" className={styles.iconLink} aria-label="Sign In" onClick={() => setIsMenuOpen(false)}>
+                  👤
+                </Link>
+              )}
+
+              <button
+                className={styles.cart}
+                onClick={() => {
+                  openCart();
+                  setIsMenuOpen(false);
+                }}
+              >
+                <span className={styles.cartIcon}>🛒</span>
+                {itemCount > 0 && <span className={styles.badge}>{itemCount}</span>}
+              </button>
+            </div>
           </nav>
 
-          <div className={styles.actions}>
+          <div className={`${styles.actions} ${styles.desktopOnly}`}>
             <div className={styles.languageSwitcher}>
               <button
                 className={`${styles.langBtn} ${language === 'ka' ? styles.active : ''}`}
