@@ -1,5 +1,5 @@
 .hero {
-    padding: 12rem 0 8rem;
+    padding: 8.5rem 0 5.5rem;
     background: var(--bg-primary);
     display: flex;
     align-items: center;
@@ -33,6 +33,6 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 8rem 0 4rem;
+        padding: 5.5rem 0 2.5rem;
     }
 }

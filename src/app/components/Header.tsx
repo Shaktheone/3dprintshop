@@ -60,7 +60,7 @@ export default function Header() {
               </Link>
             ) : (
               <Link href="/auth/signin" className={styles.iconLink} aria-label="Sign In">
-                🔑
+                👤
               </Link>
             )}
 

@@ -205,7 +205,11 @@
     }
 
     .actions {
-        gap: 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .logoText {
+        font-size: 1.75rem;
     }
 
     .languageSwitcher {
