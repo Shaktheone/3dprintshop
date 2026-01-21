@@ -187,10 +187,10 @@
         height: 100vh;
         background: var(--bg-primary);
         z-index: 1001;
-        padding: 4rem 2rem;
+        padding: 5rem 2rem;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 1.5rem;
     }
 
     .desktopOnly {
@@ -199,18 +199,19 @@
 
     .mobileOnly {
         display: flex !important;
-        margin-top: 1rem;
-        padding-top: 2rem;
+        margin-top: 2rem;
+        padding-top: 2.5rem;
         border-top: 1px solid var(--border);
-        width: 100%;
+        width: 80%;
         justify-content: center;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .navLink {
-        font-size: 2rem;
-        padding: 1rem;
-        /* Increase touch area */
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
         display: block;
         width: 100%;
         text-align: center;
