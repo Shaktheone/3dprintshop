@@ -19,11 +19,11 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.mainHeader}>
-          <div className={styles.logo}>
+          <Link href="/" className={styles.logo}>
             <h1 className={styles.logoText}>
               <span className={styles.minimal}>3D</span> {language === 'ka' ? 'პრინტ' : 'Print'}
             </h1>
-          </div>
+          </Link>
 
           <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
             <a href="/#shop" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>{t('nav.shop')}</a>
