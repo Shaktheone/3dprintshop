@@ -187,10 +187,17 @@
 
     .navLink {
         font-size: 2rem;
+        padding: 1rem;
+        /* Increase touch area */
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
-    .menuToggle {
-        display: flex;
+    .iconLink {
+        width: 48px;
+        /* Larger touch target */
+        height: 48px;
     }
 
     .mainHeader {

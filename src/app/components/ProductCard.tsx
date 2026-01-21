@@ -23,8 +23,8 @@ export default function ProductCard({ id, name, price, image, onBuy }: ProductCa
                     <Image
                         src={image}
                         alt={name}
-                        width={500}
-                        height={500}
+                        fill
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                         className={styles.image}
                         style={{ objectFit: 'cover' }}
                     />
